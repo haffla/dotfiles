@@ -28,6 +28,7 @@ Plug 'danilo-augusto/vim-afterglow'
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'nelstrom/vim-visual-star-search'
 
 call plug#end()
 
