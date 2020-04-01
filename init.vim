@@ -141,7 +141,7 @@ nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<
 map <C-n> :NERDTreeToggle<CR>
 " map <C-m> :NERDTree %<CR>
 
-nnoremap <leader>wtf opp "#" * 90<c-m>pp caller<c-m>pp "#" * 90<esc>
+nnoremap <leader>cc opp "#" * 90<c-m>pp caller<c-m>pp "#" * 90<esc>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
