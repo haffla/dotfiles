@@ -9,12 +9,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
-Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
@@ -29,27 +27,24 @@ Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
-" When writing a buffer (no delay).
-call neomake#configure#automake('w')
-let g:neomake_open_list = 2
-let g:neomake_ruby_enabled_makers = ['rubocop']
-
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
-
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] 
-let g:deoplete#enable_at_startup = 1
 let g:ag_working_path_mode="r"
-
 let g:airline_theme='afterglow'
+
 colorscheme afterglow
 
 filetype plugin indent on   " Automatically detect file types.
+filetype plugin on
 syntax on                   " Syntax highlighting
 scriptencoding utf-8
 
+" Can leave unsaved buffers
+set hidden
 set number relativenumber
 set ignorecase             " case insensitive search
 set smartcase              " case sensitive when searching uppercase
@@ -70,6 +65,8 @@ set updatetime=250
 if !isdirectory(expand("~/.neovimundo"))
     call mkdir(expand("~/.neovimundo", "", 0700))
 endif
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Remappings
 
@@ -139,7 +136,6 @@ nnoremap <Leader>w :CtrlPBuffer<CR>
 nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 map <C-n> :NERDTreeToggle<CR>
-" map <C-m> :NERDTree %<CR>
 
 nnoremap <leader>cc opp "#" * 90<c-m>pp caller<c-m>pp "#" * 90<esc>
 
