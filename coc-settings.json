@@ -1,0 +1,18 @@
+{
+  "solargraph.diagnostics": false,
+  "solargraph.autoformat": false,
+  "solargraph.formatting": true,
+  "solargraph.hover": false,
+  "solargraph.useBundler": false,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "typescript", "typescriptreact", "json"],
+  "languageserver": {
+    "clojure-lsp": {
+      "command": "bash",
+      "args": ["-c", "clojure-lsp"],
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose"
+    }
+  }
+}
