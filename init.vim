@@ -7,15 +7,17 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-salve'
 Plug 'easymotion/vim-easymotion'
 Plug 'stephpy/vim-yaml'
 Plug 'tonchis/vim-to-github' " :ToGithub
@@ -28,15 +30,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] 
 let g:ag_working_path_mode="r"
-let g:airline_theme='afterglow'
+let g:salve_auto_start_repl=1
 
-colorscheme afterglow
+colorscheme gruvbox
 
 filetype plugin indent on   " Automatically detect file types.
 filetype plugin on
@@ -66,8 +69,6 @@ if !isdirectory(expand("~/.neovimundo"))
     call mkdir(expand("~/.neovimundo", "", 0700))
 endif
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 " Remappings
 
 " Make Space the leader
@@ -86,6 +87,30 @@ vnoremap <Up> <Nop>
 vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
+
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Rename Symbol
+nmap <leader>cr <Plug>(coc-rename)
+" Format buffer
+nmap <leader>cf <Plug>(coc-format)
+" Go to definition
+nmap <silent> gd <Plug>(coc-definition)
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Format using Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Easy window movement
 map <C-J> <C-W>j
