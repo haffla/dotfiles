@@ -1,6 +1,3 @@
-" ~/.config/nvim/init.vim
-" A lot of credit to spf13
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -31,6 +28,10 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -38,6 +39,7 @@ let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] 
 let g:ag_working_path_mode="r"
 let g:salve_auto_start_repl=1
+let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 
 colorscheme gruvbox
 
@@ -46,6 +48,8 @@ filetype plugin on
 syntax on                   " Syntax highlighting
 scriptencoding utf-8
 
+" insert spaces when hitting tab in insert mode
+set expandtab
 " Can leave unsaved buffers
 set hidden
 set number relativenumber
@@ -64,6 +68,9 @@ set splitbelow                           " Puts new split windows to the bottom 
 set nosmd                                " Don't show mode on bottom line
 set mouse=a                              " Enable mouse scrolling
 set updatetime=250
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
 
 if !isdirectory(expand("~/.neovimundo"))
     call mkdir(expand("~/.neovimundo", "", 0700))
@@ -88,18 +95,8 @@ vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
+" Use tab for trigger completion
+imap <silent><expr><TAB> coc#refresh()
 " Rename Symbol
 nmap <leader>cr <Plug>(coc-rename)
 " Format buffer
@@ -133,6 +130,7 @@ nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>tn :NeomakeToggle<CR>
+nnoremap <Leader><tab> :e#<CR>
 
 " Git
 nnoremap <leader>gs :Gstatus<CR>
@@ -143,26 +141,10 @@ nnoremap <leader>gl :Glog<CR>
 " Open config file
 nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
 
-" Buffer management
-nnoremap <Leader>l :ls<CR>
-nnoremap <Leader><tab> :e#<CR>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
-
 nnoremap <Leader>w :CtrlPBuffer<CR>
-nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
+" nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 map <C-n> :NERDTreeToggle<CR>
-
-nnoremap <leader>cc opp "#" * 90<c-m>pp caller<c-m>pp "#" * 90<esc>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
