@@ -32,14 +32,21 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
+Plug 'slim-template/vim-slim'
+Plug 'rizzatti/dash.vim'
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] 
 let g:ag_working_path_mode="r"
 let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
+
+" Use ag for CTRL-P
+let g:ctrlp_use_caching = 0
+set grepprg=ag\ --nogroup\ --nocolor
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 colorscheme gruvbox
 
@@ -138,13 +145,21 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gl :Glog<CR>
 
+" Copy to system clipboard
+vmap <leader>y "*y
+
+" Dash: search word under cursor
+nmap <silent> <leader>d <Plug>DashSearch
+
 " Open config file
 nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>w :CtrlPBuffer<CR>
 " nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+" nnoremap <C-m> :NERDTreeToggle %<CR>
+nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
