@@ -1,4 +1,5 @@
 #!/bin/bash
 
-ln -s $(pwd)/nvim ~/.config/nvim
-ln -s $(pwd)/.zshrc ~/.zshrc
+ln -sFf $(pwd)/nvim ~/.config/nvim
+ln -sf $(pwd)/.zshrc ~/.zshrc
+ln -sf $(pwd)/.asdfrc ~/.asdfrc
