@@ -33,9 +33,7 @@ plugins=(
         common-aliases
         asdf
         autojump
-        chucknorris
         colorize
-        dash
 )
 
 source "$ZSH/oh-my-zsh.sh"
@@ -75,7 +73,9 @@ pullrequest() {
         | sed 's/_$//' \
         | awk '{print tolower($0)}')
 
-    git checkout -b "feature/$ISSUE_LOWER_$SUMMARY_SANITIZED"
+    local ISSUE_SNAKE=$(echo $ISSUE_LOWER | sed 's/-/_/g')
+
+    git checkout -b "feature/${ISSUE_SNAKE}_$ISSUE_LOWER_$SUMMARY_SANITIZED"
     git commit --allow-empty -m "$ISSUE_UPPER: $SUMMARY" -m "initial commit [ci skip]"
     git push origin HEAD
 
@@ -170,5 +170,3 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 export KEYTIMEOUT=1
 # fixes weird 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
-
-chuck_cow
