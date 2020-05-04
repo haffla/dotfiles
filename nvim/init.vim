@@ -47,6 +47,7 @@ let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 let g:ctrlp_use_caching = 0
 set grepprg=ag\ --nogroup\ --nocolor
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_show_hidden = 1
 
 colorscheme gruvbox
 
@@ -158,10 +159,21 @@ nnoremap <Leader>w :CtrlPBuffer<CR>
 " nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 nnoremap <C-n> :NERDTreeToggle<CR>
-" nnoremap <C-m> :NERDTreeToggle %<CR>
+nnoremap <C-m> :NERDTreeFind<CR>
 nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 
+" make J, K, L, and H move the cursor MORE.
+nnoremap J }
+nnoremap K {
+nnoremap L g_
+nnoremap H 0
+
+" make <c-j>, <c-k>, <c-l>, and <c-h> scroll the screen.
+nnoremap <c-j> <c-e>
+nnoremap <c-k> <c-y>
+nnoremap <c-l> zl
+nnoremap <c-h> zh
