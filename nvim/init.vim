@@ -56,6 +56,7 @@ filetype plugin on
 syntax on                   " Syntax highlighting
 scriptencoding utf-8
 
+set scrolloff=10
 " insert spaces when hitting tab in insert mode
 set expandtab
 " Can leave unsaved buffers
@@ -159,21 +160,10 @@ nnoremap <Leader>w :CtrlPBuffer<CR>
 " nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-m> :NERDTreeFind<CR>
+" nnoremap <C-m> :NERDTreeFind<CR>
 nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 
-" make J, K, L, and H move the cursor MORE.
-nnoremap J }
-nnoremap K {
-nnoremap L g_
-nnoremap H 0
-
-" make <c-j>, <c-k>, <c-l>, and <c-h> scroll the screen.
-nnoremap <c-j> <c-e>
-nnoremap <c-k> <c-y>
-nnoremap <c-l> zl
-nnoremap <c-h> zh
