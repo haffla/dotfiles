@@ -43,6 +43,8 @@ let g:ag_working_path_mode="r"
 let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 
+let NERDTreeShowHidden=1
+
 " Use ag for CTRL-P
 let g:ctrlp_use_caching = 0
 set grepprg=ag\ --nogroup\ --nocolor
