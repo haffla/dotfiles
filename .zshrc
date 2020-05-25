@@ -43,6 +43,7 @@ export PATH=$PATH:~/Library/Python/2.7/bin:~/Library/Python/3.7/bin
 
 # Colorize with less
 alias cl=cless
+alias pulls="hub browse -- pulls"
 
 gbc() {
     git checkout $(git branch | grep $1)
