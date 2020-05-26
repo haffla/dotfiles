@@ -8,7 +8,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
-Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -35,21 +35,26 @@ Plug 'alvan/vim-closetag'
 Plug 'slim-template/vim-slim'
 Plug 'rizzatti/dash.vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'honza/vim-snippets'
+Plug 'wellle/targets.vim'
+Plug 'LnL7/vim-nix'
 
 call plug#end()
 
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:ag_working_path_mode="r"
 let g:salve_auto_start_repl=1
-let g:closetag_filenames = '*.html,*.jsx,*.tsx'
-
+let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
+let g:NERDSpaceDelims=1
 let NERDTreeShowHidden=1
 
 " Use ag for CTRL-P
-let g:ctrlp_use_caching = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --follow --ignore .git -g ""'
+let g:ctrlp_use_caching=0
+let g:ctrlp_show_hidden=1
+
+imap <C-l> <Plug>(coc-snippets-expand)
 set grepprg=ag\ --nogroup\ --nocolor
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_show_hidden = 1
 
 colorscheme gruvbox
 

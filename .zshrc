@@ -44,6 +44,13 @@ export PATH=$PATH:~/Library/Python/2.7/bin:~/Library/Python/3.7/bin
 # Colorize with less
 alias cl=cless
 alias pulls="hub browse -- pulls"
+alias dps="docker ps"
+alias ec="$EDITOR $HOME/.zshrc"
+alias sc="source $HOME/.zshrc"
+alias con="$EDITOR ~/.config/nvim/init.vim"
+alias code="cd ~/code"
+
+
 
 gbc() {
     git checkout $(git branch | grep $1)
