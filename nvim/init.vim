@@ -1,13 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-ruby/vim-ruby'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'rking/ag.vim'
-Plug 'Chun-Yang/vim-action-ag'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -35,23 +33,28 @@ Plug 'alvan/vim-closetag'
 Plug 'slim-template/vim-slim'
 Plug 'rizzatti/dash.vim'
 Plug 'elixir-editors/vim-elixir'
-Plug 'honza/vim-snippets'
 Plug 'wellle/targets.vim'
 Plug 'LnL7/vim-nix'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'amadeus/vim-mjml'
 
 call plug#end()
 
+" ignores files in gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
-let g:ag_working_path_mode="r"
 let g:salve_auto_start_repl=1
-let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb'
+let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml'
 let g:NERDSpaceDelims=1
 let NERDTreeShowHidden=1
 
 " Use ag for CTRL-P
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --follow --ignore .git -g ""'
-let g:ctrlp_use_caching=0
-let g:ctrlp_show_hidden=1
+" let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --follow --ignore .git -g ""'
+" let g:ctrlp_use_caching=0
+" let g:ctrlp_show_hidden=1
 
 imap <C-l> <Plug>(coc-snippets-expand)
 set grepprg=ag\ --nogroup\ --nocolor
@@ -154,8 +157,9 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gl :Glog<CR>
 
-" Copy to system clipboard
+" Copy to and from system clipboard
 vmap <leader>y "*y
+vmap <leader>p "*p
 
 " Dash: search word under cursor
 nmap <silent> <leader>d <Plug>DashSearch
@@ -163,14 +167,16 @@ nmap <silent> <leader>d <Plug>DashSearch
 " Open config file
 nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
 
-nnoremap <Leader>w :CtrlPBuffer<CR>
+nnoremap <Leader>w :Buffers<CR>
+nnoremap <C-p> :Files<CR>
 " nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+
 nnoremap <C-n> :NERDTreeToggle<CR>
-" nnoremap <C-m> :NERDTreeFind<CR>
+nnoremap <C-m> :NERDTreeFind<CR>
 nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
-

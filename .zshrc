@@ -15,10 +15,11 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 
 HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 export UPDATE_ZSH_DAYS=30
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
+
+unsetopt correct_all
 
 plugins=(
         docker-compose
@@ -83,7 +84,7 @@ pullrequest() {
 
     local ISSUE_SNAKE=$(echo $ISSUE_LOWER | sed 's/-/_/g')
 
-    git checkout -b "feature/${ISSUE_SNAKE}_$ISSUE_LOWER_$SUMMARY_SANITIZED"
+    git checkout -b "feature/${ISSUE_SNAKE}_$ISSUE_LOWER_$SUMMARY_SANITIZED" master
     git commit --allow-empty -m "$ISSUE_UPPER: $SUMMARY" -m "initial commit [ci skip]"
     git push origin HEAD
 
