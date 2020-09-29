@@ -31,8 +31,6 @@ plugins=(
         bundler
         history-substring-search
         colored-man-pages
-        common-aliases
-        asdf
         autojump
         colorize
 )
