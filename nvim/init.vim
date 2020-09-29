@@ -40,11 +40,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'amadeus/vim-mjml'
+Plug 'chr4/nginx.vim'
 
 call plug#end()
 
 " ignores files in gitignore
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml'
