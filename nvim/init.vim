@@ -1,11 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-ruby/vim-ruby'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -37,10 +34,11 @@ Plug 'wellle/targets.vim'
 Plug 'LnL7/vim-nix'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'amadeus/vim-mjml'
 Plug 'chr4/nginx.vim'
+Plug 'posva/vim-vue'
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
@@ -48,14 +46,9 @@ call plug#end()
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:salve_auto_start_repl=1
-let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml'
+let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:NERDSpaceDelims=1
 let NERDTreeShowHidden=1
-
-" Use ag for CTRL-P
-" let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --follow --ignore .git -g ""'
-" let g:ctrlp_use_caching=0
-" let g:ctrlp_show_hidden=1
 
 imap <C-l> <Plug>(coc-snippets-expand)
 set grepprg=ag\ --nogroup\ --nocolor
@@ -68,6 +61,7 @@ syntax on                   " Syntax highlighting
 scriptencoding utf-8
 
 set scrolloff=10
+set nostartofline
 " insert spaces when hitting tab in insert mode
 set expandtab
 " Can leave unsaved buffers
@@ -135,10 +129,6 @@ map <C-K> <C-W>k
 map <C-L> <C-W>l
 map <C-H> <C-W>h
 
-imap <C-Q> <Plug>(neosnippet_expand_or_jump)
-smap <C-Q> <Plug>(neosnippet_expand_or_jump)
-xmap <C-Q> <Plug>(neosnippet_expand_target)
-
 " Remove all highlights
 nnoremap <Leader><Esc> :noh<CR>
 " Easier search
@@ -170,9 +160,10 @@ nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>w :Buffers<CR>
 nnoremap <C-p> :Files<CR>
-" nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
+" use ag to search for word under cursor
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+vnoremap <Leader>ag y:Ag <C-r>=fnameescape(@")<CR><CR>
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-m> :NERDTreeFind<CR>
@@ -181,3 +172,5 @@ nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
+
+nnoremap <C-g> :Ag<Cr>
