@@ -98,7 +98,7 @@ gacm() {
 }
 
 delete_branches() {
-    git branch | grep -v "master" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -D </tmp/merged-branches
+    git branch | egrep -v "(master|develop)" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -D </tmp/merged-branches
 }
 
 cheat() {
@@ -177,3 +177,5 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 export KEYTIMEOUT=1
 # fixes weird 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
+
+. /usr/local/opt/asdf/asdf.sh
