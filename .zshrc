@@ -38,7 +38,8 @@ plugins=(
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zshrc_local"
 export EDITOR='nvim'
-export PATH=$PATH:~/Library/Python/2.7/bin:~/Library/Python/3.7/bin
+# use neovim for reading man pages
+export MANPAGER="nvim -c 'set ft=man' -"
 
 # Colorize with less
 alias cl=cless
@@ -48,6 +49,8 @@ alias ec="$EDITOR $HOME/.zshrc"
 alias sc="source $HOME/.zshrc"
 alias con="$EDITOR ~/.config/nvim/init.vim"
 alias code="cd ~/code"
+alias gpeek=git-peek
+alias gl='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - \ %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
 
 
 
@@ -98,11 +101,15 @@ gacm() {
 }
 
 delete_branches() {
-    git branch | egrep -v "(master|develop)" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -D </tmp/merged-branches
+    git branch | egrep -v "(master|develop|main)" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -D </tmp/merged-branches
 }
 
 cheat() {
     curl cheat.sh/$1
+}
+
+1s() {
+    open "https://github1s.com/$1"
 }
 
 dstop() {
