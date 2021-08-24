@@ -34,13 +34,19 @@ Plug 'wellle/targets.vim'
 Plug 'LnL7/vim-nix'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'amadeus/vim-mjml'
 Plug 'chr4/nginx.vim'
 Plug 'posva/vim-vue'
 Plug 'luochen1990/rainbow'
+" Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
+
+" lua << EOF
+" require'lspconfig'.solargraph.setup{}
+" EOF
 
 " ignores files in gitignore
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
@@ -49,8 +55,8 @@ let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:NERDSpaceDelims=1
 let NERDTreeShowHidden=1
+let g:UltiSnipsExpandTrigger="<C-l>"
 
-imap <C-l> <Plug>(coc-snippets-expand)
 set grepprg=ag\ --nogroup\ --nocolor
 
 colorscheme gruvbox
@@ -174,3 +180,4 @@ highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 
 nnoremap <C-g> :Ag<Cr>
+
