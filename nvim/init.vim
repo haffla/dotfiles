@@ -21,14 +21,12 @@ Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 Plug 'slim-template/vim-slim'
-Plug 'rizzatti/dash.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'wellle/targets.vim'
 Plug 'LnL7/vim-nix'
@@ -40,13 +38,10 @@ Plug 'amadeus/vim-mjml'
 Plug 'chr4/nginx.vim'
 Plug 'posva/vim-vue'
 Plug 'luochen1990/rainbow'
-" Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
-
-" lua << EOF
-" require'lspconfig'.solargraph.setup{}
-" EOF
 
 " ignores files in gitignore
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
@@ -55,7 +50,10 @@ let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:NERDSpaceDelims=1
 let NERDTreeShowHidden=1
-let g:UltiSnipsExpandTrigger="<C-l>"
+
+" use tab and shift-tab to jump to snippet placeholders
+let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 set grepprg=ag\ --nogroup\ --nocolor
 
@@ -115,20 +113,6 @@ vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 
-" Use tab for trigger completion
-imap <silent><expr><TAB> coc#refresh()
-" Rename Symbol
-nmap <leader>cr <Plug>(coc-rename)
-" Format buffer
-nmap <leader>cf <Plug>(coc-format)
-" Go to definition
-nmap <silent> gd <Plug>(coc-definition)
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" Format using Prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 " Easy window movement
 map <C-J> <C-W>j
 map <C-K> <C-W>k
@@ -145,7 +129,6 @@ nnoremap <Leader>h :split<CR>
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>tn :NeomakeToggle<CR>
 nnoremap <Leader><tab> :e#<CR>
 
 " Git
@@ -157,9 +140,6 @@ nnoremap <leader>gl :Glog<CR>
 " Copy to and from system clipboard
 vmap <leader>y "*y
 vmap <leader>p "*p
-
-" Dash: search word under cursor
-nmap <silent> <leader>d <Plug>DashSearch
 
 " Open config file
 nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
@@ -181,3 +161,5 @@ highlight GitGutterDelete ctermfg=1
 
 nnoremap <C-g> :Ag<Cr>
 
+lua require('lsp_config')
+lua require('comp')
