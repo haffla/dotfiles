@@ -185,4 +185,4 @@ export KEYTIMEOUT=1
 # fixes weird 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
 
-. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/libexec/asdf.sh
