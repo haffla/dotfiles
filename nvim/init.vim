@@ -8,8 +8,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-salve'
 Plug 'easymotion/vim-easymotion'
 Plug 'stephpy/vim-yaml'
 Plug 'tonchis/vim-to-github' " :ToGithub
@@ -26,17 +24,12 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
-Plug 'slim-template/vim-slim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'wellle/targets.vim'
-Plug 'LnL7/vim-nix'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'amadeus/vim-mjml'
-Plug 'chr4/nginx.vim'
-Plug 'posva/vim-vue'
 Plug 'luochen1990/rainbow'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
@@ -45,25 +38,25 @@ call plug#end()
 
 " ignores files in gitignore
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+let NERDTreeShowHidden=1
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:NERDSpaceDelims=1
-let NERDTreeShowHidden=1
-
+let g:highlightedyank_highlight_duration = 500
 " use tab and shift-tab to jump to snippet placeholders
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-set grepprg=ag\ --nogroup\ --nocolor
-
 colorscheme gruvbox
-
 filetype plugin indent on   " Automatically detect file types.
 filetype plugin on
 syntax on                   " Syntax highlighting
 scriptencoding utf-8
 
+" Make Space the leader
+let mapleader=" "
+set grepprg=ag\ --nogroup\ --nocolor
 set scrolloff=10
 set nostartofline
 " insert spaces when hitting tab in insert mode
@@ -74,8 +67,6 @@ set number relativenumber
 set ignorecase             " case insensitive search
 set smartcase              " case sensitive when searching uppercase
 set nowrap                 " Do not wrap long lines
-set undodir=~/.neovimundo
-set undofile                " So is persistent undo ...
 set undolevels=1000         " Maximum number of changes that can be undone
 set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 set nobackup
@@ -89,15 +80,14 @@ set updatetime=250
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
+set undofile                " So is persistent undo ...
+set undodir=~/.neovimundo
 
 if !isdirectory(expand("~/.neovimundo"))
     call mkdir(expand("~/.neovimundo", "", 0700))
 endif
 
 " Remappings
-
-" Make Space the leader
-let mapleader=" "
 nnoremap <SPACE> <Nop>
 
 noremap <Up> <Nop>
