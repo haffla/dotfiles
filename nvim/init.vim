@@ -33,6 +33,7 @@ Plug 'honza/vim-snippets'
 Plug 'luochen1990/rainbow'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
