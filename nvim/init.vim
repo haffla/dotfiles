@@ -28,12 +28,18 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'luochen1990/rainbow'
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
 Plug 'machakann/vim-highlightedyank'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'ziglang/zig.vim'
 
 call plug#end()
 
@@ -45,15 +51,13 @@ let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:NERDSpaceDelims=1
 let g:highlightedyank_highlight_duration = 500
-" use tab and shift-tab to jump to snippet placeholders
-let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 colorscheme gruvbox
 filetype plugin indent on   " Automatically detect file types.
 filetype plugin on
 syntax on                   " Syntax highlighting
 scriptencoding utf-8
+set shortmess+=c
 
 " Make Space the leader
 let mapleader=" "
@@ -153,4 +157,5 @@ highlight GitGutterDelete ctermfg=1
 nnoremap <C-g> :Ag<Cr>
 
 lua require('lsp_config')
-lua require('comp')
+lua require('complete')
+runtime snip.vim
