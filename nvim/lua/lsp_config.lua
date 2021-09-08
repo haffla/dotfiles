@@ -29,12 +29,24 @@ local on_attach = function(client, bufnr)
 
 end
 
-local servers = { "solargraph", "tsserver" }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+local servers = { "solargraph", "tsserver", "zls", "rust_analyzer" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-	on_attach = on_attach,
-	flags = {
-	  debounce_text_changes = 150,
-	}
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 150,
+    }
   }
 end
