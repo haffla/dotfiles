@@ -7,14 +7,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dispatch'
 Plug 'easymotion/vim-easymotion'
 Plug 'stephpy/vim-yaml'
-Plug 'tonchis/vim-to-github' " :ToGithub
-Plug 'liuchengxu/space-vim-dark'
 Plug 'vim-airline/vim-airline'
-Plug 'chase/focuspoint-vim'
-Plug 'danilo-augusto/vim-afterglow'
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -26,8 +21,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 Plug 'elixir-editors/vim-elixir'
 Plug 'wellle/targets.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
@@ -40,11 +33,11 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'ziglang/zig.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
-" ignores files in gitignore
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let NERDTreeShowHidden=1
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:salve_auto_start_repl=1
@@ -139,8 +132,9 @@ vmap <leader>p "*p
 " Open config file
 nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
 
-nnoremap <Leader>w :Buffers<CR>
-nnoremap <C-p> :Files<CR>
+nnoremap <Leader>w :Telescope buffers<CR>
+nnoremap <C-p> :Telescope find_files find_command=rg,--hidden,--files,--glob,!.git<CR>
+nnoremap <Leader>o :Telescope lsp_workspace_symbols<CR>
 
 " use ag to search for word under cursor
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
@@ -148,7 +142,6 @@ vnoremap <Leader>ag y:Ag <C-r>=fnameescape(@")<CR><CR>
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-m> :NERDTreeFind<CR>
-nnoremap <Leader>tag :Dispatch ctags --exclude=node_modules --exclude=.git -R .<CR>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
@@ -158,4 +151,5 @@ nnoremap <C-g> :Ag<Cr>
 
 lua require('lsp_config')
 lua require('complete')
+lua require('tcope')
 runtime snip.vim
