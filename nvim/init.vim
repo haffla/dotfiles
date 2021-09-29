@@ -132,7 +132,7 @@ vmap <leader>p "*p
 " Open config file
 nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
 
-nnoremap <Leader>w :Telescope buffers<CR>
+nnoremap <C-s> :Telescope oldfiles<CR>
 nnoremap <C-p> :Telescope find_files find_command=rg,--hidden,--files,--glob,!.git<CR>
 nnoremap <Leader>o :Telescope lsp_workspace_symbols<CR>
 
