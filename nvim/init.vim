@@ -23,6 +23,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'wellle/targets.vim'
 Plug 'luochen1990/rainbow'
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
@@ -35,6 +36,8 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'ziglang/zig.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'rking/ag.vim'
+Plug 'github/copilot.vim'
 
 call plug#end()
 

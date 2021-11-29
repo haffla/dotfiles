@@ -40,7 +40,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local servers = { "solargraph", "tsserver", "zls", "rust_analyzer" }
+local servers = { "solargraph", "tsserver", "rust_analyzer", "pyright" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

@@ -79,7 +79,7 @@ set blink-matching-paren on
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
-bindkey '^ ' autosuggest-accept
+bindkey '^j' autosuggest-accept
 bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
 # Use vim keys in tab complete menu:
