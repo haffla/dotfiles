@@ -85,7 +85,7 @@ set undofile                " So is persistent undo ...
 set undodir=~/.neovimundo
 
 if !isdirectory(expand("~/.neovimundo"))
-    call mkdir(expand("~/.neovimundo", "", 0700))
+    call mkdir(expand("~/.neovimundo"), "", 0700)
 endif
 
 " Remappings
