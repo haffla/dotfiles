@@ -1,3 +1,10 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 autoload bashcompinit
 bashcompinit
 
@@ -12,15 +19,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 export KEYTIMEOUT=1
 # fixes weird 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
-
-
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
@@ -54,6 +52,7 @@ alias con="$EDITOR ~/.config/nvim/init.vim"
 alias code="cd ~/code"
 alias gpeek=git-peek
 alias gl='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - \ %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
+alias n='nvim'
 
 
 
@@ -79,7 +78,7 @@ set blink-matching-paren on
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
-bindkey '^j' autosuggest-accept
+bindkey '^ ' autosuggest-accept
 bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
 # Use vim keys in tab complete menu:
