@@ -125,7 +125,7 @@ nnoremap <Leader><tab> :e#<CR>
 " Git
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gl :Glog<CR>
 
 " Copy to and from system clipboard
@@ -133,7 +133,9 @@ vmap <leader>y "*y
 vmap <leader>p "*p
 
 " Open config file
-nnoremap <leader>con :e ~/.config/nvim/init.vim<CR>
+nnoremap <leader>cone :e ~/.config/nvim/init.vim<CR>
+" source config file
+nnoremap <leader>conr :source ~/.config/nvim/init.vim<CR>
 
 nnoremap <C-s> :Telescope oldfiles<CR>
 nnoremap <C-p> :Telescope find_files find_command=rg,--hidden,--files,--glob,!.git<CR>
@@ -149,8 +151,6 @@ nnoremap <C-m> :NERDTreeFind<CR>
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
-
-nnoremap <C-g> :Ag<Cr>
 
 lua require('lsp_config')
 lua require('complete')
