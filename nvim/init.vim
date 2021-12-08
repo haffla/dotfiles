@@ -7,6 +7,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'stephpy/vim-yaml'
 Plug 'vim-airline/vim-airline'
@@ -38,6 +39,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'rking/ag.vim'
 Plug 'github/copilot.vim'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
