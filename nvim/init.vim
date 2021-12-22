@@ -138,7 +138,7 @@ nnoremap <leader>cone :e ~/.config/nvim/init.vim<CR>
 " source config file
 nnoremap <leader>conr :source ~/.config/nvim/init.vim<CR>
 
-nnoremap <C-s> :Telescope oldfiles<CR>
+nnoremap <C-s> :Telescope buffers<CR>
 nnoremap <C-p> :Telescope find_files find_command=rg,--hidden,--files,--glob,!.git<CR>
 nnoremap <Leader>o :Telescope lsp_workspace_symbols<CR>
 
