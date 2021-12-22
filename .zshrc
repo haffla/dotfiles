@@ -43,8 +43,6 @@ plugins=(
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zshrc_local"
 # Colorize with less
-alias cl=cless
-alias pulls="hub browse -- pulls"
 alias dps="docker ps"
 alias ec="$EDITOR $HOME/.zshrc"
 alias sc="source $HOME/.zshrc"
@@ -52,7 +50,8 @@ alias con="$EDITOR ~/.config/nvim/init.vim"
 alias code="cd ~/code"
 alias gpeek=git-peek
 alias gl='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - \ %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
-alias n='nvim'
+alias n=nvim
+alias c=clear
 
 
 
