@@ -14,7 +14,6 @@ export LANG=en_US.UTF-8
 export ZSH="$HOME/.oh-my-zsh"
 export UPDATE_ZSH_DAYS=30
 export EDITOR='nvim'
-export MANPAGER="nvim -c 'set ft=man' -"
 # timeout for changing modes in vi
 export KEYTIMEOUT=1
 # fixes weird 'gpg: signing failed: Inappropriate ioctl for device'
