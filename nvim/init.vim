@@ -38,6 +38,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'rking/ag.vim'
 Plug 'github/copilot.vim'
+Plug 'LnL7/vim-nix'
 
 call plug#end()
 
