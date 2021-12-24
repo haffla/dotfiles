@@ -38,3 +38,5 @@ export EDITOR='nvim'
 export KEYTIMEOUT=1
 # fixes weird 'gpg: signing failed: Inappropriate ioctl for device'
 export GPG_TTY=$(tty)
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -36,7 +36,6 @@
       COMPLETION_WAITING_DOTS = "true";
     };
     defaultKeymap = "viins";
-    initExtraBeforeCompInit = builtins.readFile ./configs/zsh/p10k.zsh;
     initExtra = builtins.readFile ./configs/zsh/extra.zsh;
     oh-my-zsh = {
       enable = true;
