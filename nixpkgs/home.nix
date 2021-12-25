@@ -46,11 +46,15 @@ let
           rm -rf "$baseDir"
         fi
         mkdir -p "$baseDir"
-        for appFile in ${apps}/Applications/*; do
-          target="$baseDir/$(basename "$appFile")"
-          $DRY_RUN_CMD cp ''${VERBOSE_ARG:+-v} -fHRL "$appFile" "$baseDir"
-          $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
-        done
+
+        if [ -n "$(ls -A ${apps}/Applications 2>/dev/null)" ]
+        then
+          for appFile in ${apps}/Applications/*; do
+            target="$baseDir/$(basename "$appFile")"
+            $DRY_RUN_CMD cp ''${VERBOSE_ARG:+-v} -fHRL "$appFile" "$baseDir"
+            $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
+          done
+        fi
       '';
   };
 
@@ -88,7 +92,6 @@ let
       HYPHEN_INSENSITIVE = "true";
       COMPLETION_WAITING_DOTS = "true";
     };
-    defaultKeymap = "viins";
     initExtra = builtins.readFile ./configs/zsh/extra.zsh;
     oh-my-zsh = {
       enable = true;
@@ -110,5 +113,9 @@ let
     pkgs.tree
     pkgs.htop
     pkgs.jq
+    pkgs.neovim
+    pkgs.autojump
+    pkgs.ripgrep
+    pkgs.gnupg
   ];
 }

@@ -1,5 +1,6 @@
 set blink-matching-paren on
 
+bindkey -v
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
