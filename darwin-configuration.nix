@@ -23,7 +23,6 @@
   system.defaults = {
     dock = {
       autohide = true;
-      orientation = "right";
     };
   };
 }
