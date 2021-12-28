@@ -39,6 +39,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'rking/ag.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'LnL7/vim-nix'
 
 call plug#end()
 
