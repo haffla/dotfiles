@@ -10,5 +10,10 @@ require('telescope').setup{
         ["<C-k>"] = actions.move_selection_previous
       }
     }
+  },
+  pickers = {
+    buffers = {
+      sort_lastused = true
+    }
   }
 }
