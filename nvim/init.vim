@@ -10,12 +10,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'stephpy/vim-yaml'
-Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -40,8 +38,15 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'rking/ag.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'LnL7/vim-nix'
-
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons' " for lualine
+" colorscheme
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+" Plug 'morhetz/gruvbox'
 call plug#end()
+
+colorscheme tokyonight
 
 let NERDTreeShowHidden=1
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
@@ -50,7 +55,6 @@ let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:NERDSpaceDelims=1
 let g:highlightedyank_highlight_duration = 500
 
-colorscheme gruvbox
 filetype plugin indent on   " Automatically detect file types.
 filetype plugin on
 syntax on                   " Syntax highlighting
@@ -157,4 +161,5 @@ highlight GitGutterDelete ctermfg=1
 lua require('lsp_config')
 lua require('complete')
 lua require('tcope')
+lua require('status_line')
 runtime snip.vim
