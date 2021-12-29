@@ -10,7 +10,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'stephpy/vim-yaml'
-Plug 'preservim/nerdtree'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nelstrom/vim-visual-star-search'
@@ -48,11 +48,9 @@ call plug#end()
 
 colorscheme tokyonight
 
-let NERDTreeShowHidden=1
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
-let g:NERDSpaceDelims=1
 let g:highlightedyank_highlight_duration = 500
 
 filetype plugin indent on   " Automatically detect file types.
@@ -151,8 +149,8 @@ nnoremap <Leader>o :Telescope lsp_workspace_symbols<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 vnoremap <Leader>ag y:Ag <C-r>=fnameescape(@")<CR><CR>
 
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-m> :NERDTreeFind<CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <C-m> :NvimTreeFindFile<CR>
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
@@ -162,4 +160,5 @@ lua require('lsp_config')
 lua require('complete')
 lua require('tcope')
 lua require('status_line')
+lua require'nvim-tree'.setup()
 runtime snip.vim
