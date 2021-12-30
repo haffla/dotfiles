@@ -35,7 +35,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'rking/ag.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'LnL7/vim-nix'
 Plug 'nvim-lualine/lualine.nvim'
@@ -44,6 +43,7 @@ Plug 'kyazdani42/nvim-web-devicons' " for lualine
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'morhetz/gruvbox'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 colorscheme tokyonight
@@ -145,10 +145,6 @@ nnoremap <C-s> :Telescope buffers<CR>
 nnoremap <C-p> :Telescope find_files find_command=rg,--hidden,--files,--glob,!.git<CR>
 nnoremap <Leader>o :Telescope lsp_workspace_symbols<CR>
 
-" use ag to search for word under cursor
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
-vnoremap <Leader>ag y:Ag <C-r>=fnameescape(@")<CR><CR>
-
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <C-m> :NvimTreeFindFile<CR>
 
@@ -158,6 +154,24 @@ highlight GitGutterDelete ctermfg=1
 
 " undefines <CR> in quickfix list to make it work for opening files
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+" Ack config
+" Actually use ag not ack lol
+let g:ackprg = 'ag --vimgrep --hidden'
+
+" use ack to search for word under cursor
+nnoremap <silent> <Leader>ag :Ack! <C-R><C-W><CR>
+
+function! VAckSearch()
+  norm! gv"sy
+  return ':Ack! "' . EscapeAllString(@s) . '"'
+endfunction
+
+function! EscapeAllString(text)
+  return substitute(escape(a:text, '*^$.?/\|{[()]}'), '\n', '\\n', 'g')
+endfunction
+
+vnoremap <Leader>ag :<C-u>exec VAckSearch()<CR>
 
 lua require('lsp_config')
 lua require('complete')
