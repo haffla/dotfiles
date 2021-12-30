@@ -59,5 +59,6 @@
     pkgs.autojump
     pkgs.ripgrep
     pkgs.gnupg
+    pkgs.silver-searcher
   ];
 }
