@@ -156,6 +156,9 @@ highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 
+" undefines <CR> in quickfix list to make it work for opening files
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 lua require('lsp_config')
 lua require('complete')
 lua require('tcope')
