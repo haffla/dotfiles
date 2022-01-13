@@ -42,3 +42,4 @@ export GPG_TTY=$(tty)
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ ! -f /usr/local/opt/asdf/libexec/asdf.sh ]] || source /usr/local/opt/asdf/libexec/asdf.sh
+[[ ! -f ~/.zshrc_local ]] || source ~/.zshrc_local
