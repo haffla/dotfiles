@@ -44,6 +44,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'morhetz/gruvbox'
 Plug 'mileszs/ack.vim'
+Plug 'slim-template/vim-slim'
 call plug#end()
 
 colorscheme tokyonight
@@ -91,6 +92,9 @@ set undodir=~/.neovimundo
 if !isdirectory(expand("~/.neovimundo"))
     call mkdir(expand("~/.neovimundo"), "", 0700)
 endif
+
+" open urls under cursor with gx
+nmap <silent>gx :sil !open <c-r><c-a><cr>
 
 " Remappings
 nnoremap <SPACE> <Nop>
