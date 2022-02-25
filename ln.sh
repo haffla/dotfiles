@@ -10,3 +10,5 @@ ln -sFf $(pwd)/nixpkgs ~/.config/nixpkgs
 ln -sf $(pwd)/darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
 ln -sf $(pwd)/.asdfrc ~/.asdfrc
 ln -sf $(pwd)/karabiner.json ~/.config/karabiner/karabiner.json
+ln -sf $(pwd)/git/.gitignore ~/.gitignore
+ln -sf $(pwd)/git/.gitconfig ~/.gitconfig

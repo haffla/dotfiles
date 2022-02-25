@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Jakob Pupke
+	email = jakok.pupke@gmail.com
+[core]
+	excludesfile = /Users/jacke/.gitignore
