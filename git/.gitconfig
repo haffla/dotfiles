@@ -2,6 +2,15 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Jakob Pupke
-	email = jakok.pupke@gmail.com
+	email = jakop@pm.me
 [core]
 	excludesfile = /Users/jacke/.gitignore
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false
