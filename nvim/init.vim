@@ -46,6 +46,7 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'mileszs/ack.vim'
 Plug 'slim-template/vim-slim'
 Plug 'idanarye/vim-merginal'
+Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 colorscheme tokyonight
