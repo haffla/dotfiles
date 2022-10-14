@@ -1,3 +1,7 @@
+" nvim-tree.lua suggests to disable net rw plugin like this
+let loaded = 1
+let loaded_netrwPlugin = 1
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -10,7 +14,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'stephpy/vim-yaml'
-Plug 'kyazdani42/nvim-tree.lua'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'nelstrom/vim-visual-star-search'
@@ -38,7 +41,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'hashivim/vim-terraform'
 Plug 'LnL7/vim-nix'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons' " for lualine
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
 " colorscheme
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
@@ -55,6 +59,9 @@ let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:highlightedyank_highlight_duration = 500
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 filetype plugin indent on   " Automatically detect file types.
 filetype plugin on
@@ -131,12 +138,6 @@ nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader><tab> :e#<CR>
-
-" Git
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gl :Glog<CR>
 
 " Copy to and from system clipboard
 vmap <leader>y "*y
