@@ -51,9 +51,17 @@ Plug 'mileszs/ack.vim'
 Plug 'slim-template/vim-slim'
 Plug 'idanarye/vim-merginal'
 Plug 'ruanyl/vim-gh-line'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
+Plug 'brooth/far.vim'
+
 call plug#end()
 
 colorscheme tokyonight
+
+set colorcolumn=120
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
 
 let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
 let g:salve_auto_start_repl=1
@@ -161,6 +169,8 @@ highlight GitGutterDelete ctermfg=1
 
 " undefines <CR> in quickfix list to make it work for opening files
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+" handlebars
+au BufReadPost *.hbs set syntax=html
 
 " Ack config
 " Actually use ag not ack lol
