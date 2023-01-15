@@ -6,6 +6,7 @@
   home.stateVersion = "21.11";
 
   programs.home-manager.enable = true;
+  manual.manpages.enable = false;
 
   programs.zsh = {
     enable = true;
