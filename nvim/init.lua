@@ -34,11 +34,7 @@ require("lazy").setup({
     end
   },
   "stephpy/vim-yaml",
-  {
-    "airblade/vim-gitgutter",
-    config = function()
-    end
-  },
+  "airblade/vim-gitgutter",
   "AndrewRadev/splitjoin.vim",
   "nelstrom/vim-visual-star-search",
   "HerringtonDarkholme/yats.vim",
@@ -50,15 +46,21 @@ require("lazy").setup({
   "luochen1990/rainbow",
   "neovim/nvim-lspconfig",
   "williamboman/nvim-lsp-installer",
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/vim-vsnip",
-  "hrsh7th/vim-vsnip-integ",
-  "rafamadriz/friendly-snippets",
+  {
+    "hrsh7th/nvim-cmp",
+    -- load cmp on InsertEnter
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/vim-vsnip",
+      "hrsh7th/vim-vsnip-integ",
+      "rafamadriz/friendly-snippets",
+    }
+  },
   "machakann/vim-highlightedyank",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-vsnip",
   "nvim-lua/plenary.nvim",
   "nvim-telescope/telescope.nvim",
   "hashivim/vim-terraform",
@@ -71,9 +73,10 @@ require("lazy").setup({
       --  nvim-tree.lua suggests to disable net rw plugin like this
       vim.g.loaded = 1
       vim.g.loaded_netrwPlugin = 1
+      require("nvim-tree").setup()
     end
   },
- {
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TsUpdate"
 
@@ -97,7 +100,6 @@ require('lsp_config')
 require('complete')
 require('tcope')
 require('status_line')
-require'nvim-tree'.setup()
 
 vim.cmd("runtime setup.vim")
 vim.cmd("runtime snip.vim")
