@@ -42,6 +42,7 @@ export GPG_TTY=$(tty)
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ ! -f "$(brew --prefix)/opt/asdf/libexec/asdf.sh" ]] || source "$(brew --prefix)/opt/asdf/libexec/asdf.sh"
+[[ ! -f "$(brew --prefix nvm)/nvm.sh" ]] || source "$(brew --prefix nvm)/nvm.sh"
 [[ ! -f ~/.zshrc_local ]] || source ~/.zshrc_local
 
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
