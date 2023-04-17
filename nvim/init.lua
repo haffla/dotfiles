@@ -92,7 +92,8 @@ require("lazy").setup({
   },
   "slim-template/vim-slim",
   "ruanyl/vim-gh-line",
-  "brooth/far.vim"
+  "brooth/far.vim",
+  "github/copilot.vim"
 })
 
 require('lsp_config')
