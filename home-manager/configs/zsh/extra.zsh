@@ -1,12 +1,8 @@
 set blink-matching-paren on
 
 bindkey -v
-bindkey '^h' backward-delete-char
-bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 bindkey '^ ' autosuggest-accept
-bindkey '^p' history-substring-search-up
-bindkey '^n' history-substring-search-down
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -48,3 +44,6 @@ export GPG_TTY=$(tty)
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
+
+# TWilio CLI autocomplete
+TWILIO_AC_ZSH_SETUP_PATH=~/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH;

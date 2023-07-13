@@ -93,7 +93,14 @@ require("lazy").setup({
   "slim-template/vim-slim",
   "ruanyl/vim-gh-line",
   "brooth/far.vim",
-  "github/copilot.vim"
+  "github/copilot.vim",
+  {
+    "tyru/open-browser-github.vim",
+    dependencies = {
+      "tyru/open-browser.vim",
+    }
+  },
+  "vim-test/vim-test"
 })
 
 require('lsp_config')

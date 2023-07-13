@@ -23,6 +23,16 @@
       n = "nvim";
       c = "clear";
     };
+    history = {
+      size = 999999999;
+      save = 999999999;
+      ignoreDups = true;
+    };
+    historySubstringSearch = {
+      enable = true;
+      searchDownKey = "^n";
+      searchUpKey = "^p";
+    };
     plugins = [
       {
         name = "powerlevel10k";
@@ -44,7 +54,6 @@
         "rails"
         "git"
         "bundler"
-        "history-substring-search"
         "colored-man-pages"
         "autojump"
         "colorize"

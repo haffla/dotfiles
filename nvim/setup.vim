@@ -102,8 +102,11 @@ nnoremap <C-m> :NvimTreeFindFile<CR>
 
 nnoremap <leader>ak <cmd>Telescope live_grep<cr>
 nnoremap <leader>ag <cmd>Telescope grep_string<cr>
-vnoremap <leader>ack "zy:Telescope grep_string default_text=<C-r>z<cr>
+vnoremap <leader>ag "zy:Telescope grep_string default_text=<C-r>z<cr>
 " undefines <CR> in quickfix list to make it work for opening files
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " handlebars
 au BufReadPost *.hbs set syntax=html
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
