@@ -101,7 +101,8 @@ require("lazy").setup({
     }
   },
   "vim-test/vim-test",
-  "voldikss/vim-floaterm"
+  "voldikss/vim-floaterm",
+  "lukas-reineke/lsp-format.nvim"
 })
 
 require('lsp_config')

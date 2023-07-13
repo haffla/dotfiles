@@ -8,6 +8,7 @@
   "far.vim": { "branch": "master", "commit": "5ad7d647434c7d89f715afa5aeae46e5441d32b3" },
   "friendly-snippets": { "branch": "main", "commit": "7ab483b355613ef4f74189c7789278d765724d12" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
+  "lsp-format.nvim": { "branch": "master", "commit": "ca0df5c8544e51517209ea7b86ecc522c98d4f0a" },
   "lualine.nvim": { "branch": "master", "commit": "0050b308552e45f7128f399886c86afefc3eb988" },
   "nerdcommenter": { "branch": "master", "commit": "98cc4a2d64ca67cccbf5b5cf47c682ebadaaff58" },
   "nvim-cmp": { "branch": "main", "commit": "11a95792a5be0f5a40bab5fc5b670e5b1399a939" },
