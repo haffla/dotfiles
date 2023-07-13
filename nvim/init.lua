@@ -100,7 +100,8 @@ require("lazy").setup({
       "tyru/open-browser.vim",
     }
   },
-  "vim-test/vim-test"
+  "vim-test/vim-test",
+  "voldikss/vim-floaterm"
 })
 
 require('lsp_config')

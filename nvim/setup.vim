@@ -108,5 +108,6 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " handlebars
 au BufReadPost *.hbs set syntax=html
 
+let test#strategy = "floaterm"
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
