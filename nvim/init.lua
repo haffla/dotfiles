@@ -102,7 +102,14 @@ require("lazy").setup({
   },
   "vim-test/vim-test",
   "voldikss/vim-floaterm",
-  "lukas-reineke/lsp-format.nvim"
+  "lukas-reineke/lsp-format.nvim",
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  },
+  "fvictorio/vim-extract-variable"
 })
 
 require('lsp_config')
