@@ -33,6 +33,7 @@ require("lazy").setup({
   "tpope/vim-rhubarb",
   "tpope/vim-surround",
   "tpope/vim-unimpaired",
+  "tpope/vim-sleuth",
   {
     "easymotion/vim-easymotion",
     config = function()
