@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require("lazy").setup({
+  -- Seemless navigation between tmux panes and vim splits
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
   "jiangmiao/auto-pairs",
   "vim-ruby/vim-ruby",
   {
@@ -25,6 +30,7 @@ require("lazy").setup({
   },
   "tpope/vim-endwise",
   "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
   "tpope/vim-surround",
   "tpope/vim-unimpaired",
   {
@@ -81,25 +87,28 @@ require("lazy").setup({
     build = ":TsUpdate"
 
   },
+  -- {
+    -- "folke/tokyonight.nvim",
+    -- lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    -- priority = 1000, -- make sure to load this before all the other start plugins
+    -- config = function()
+      -- -- load the colorscheme here
+      -- vim.cmd([[colorscheme tokyonight]])
+    -- end,
+  -- },
   {
-    "folke/tokyonight.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    lazy = false,
     config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
-    end,
+      vim.cmd([[colorscheme catppuccin-frappe]])
+    end
   },
   "slim-template/vim-slim",
   "ruanyl/vim-gh-line",
   "brooth/far.vim",
   "github/copilot.vim",
-  {
-    "tyru/open-browser-github.vim",
-    dependencies = {
-      "tyru/open-browser.vim",
-    }
-  },
   "vim-test/vim-test",
   "voldikss/vim-floaterm",
   "lukas-reineke/lsp-format.nvim",
@@ -109,7 +118,12 @@ require("lazy").setup({
       require('nvim-ts-autotag').setup()
     end
   },
-  "fvictorio/vim-extract-variable"
+  "fvictorio/vim-extract-variable",
+  "tpope/vim-obsession",
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make"
+  }
 })
 
 require('lsp_config')

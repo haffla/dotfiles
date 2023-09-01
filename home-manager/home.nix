@@ -11,7 +11,9 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting = {
+      enable = true;
+    };
     autocd = true;
     shellAliases = {
       ec = "$EDITOR $HOME/.zshrc";
@@ -20,7 +22,7 @@
       code = "cd ~/code";
       gpeek = "git-peek";
       gl = "git log --graph --abbrev-commit --decorate --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - \ %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'";
-      n = "nvim";
+      n = "nvim -S";
       c = "clear";
     };
     history = {

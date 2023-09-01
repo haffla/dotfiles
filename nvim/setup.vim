@@ -2,6 +2,8 @@ let g:salve_auto_start_repl=1
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.js,*.erb,*.mjml,*.vue'
 let g:highlightedyank_highlight_duration = 500
 
+" set t_Co=256
+
 filetype plugin indent on   " Automatically detect file types.
 filetype plugin on
 syntax on                   " Syntax highlighting
@@ -111,3 +113,11 @@ au BufReadPost *.hbs set syntax=html
 let test#strategy = "floaterm"
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
+
+" Tmux
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
