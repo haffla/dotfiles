@@ -124,6 +124,12 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make"
+  },
+  {
+    "tyru/open-browser-github.vim",
+    dependencies = {
+      "tyru/open-browser.vim"
+    }
   }
 })
 

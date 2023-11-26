@@ -15,6 +15,10 @@ gacm() {
         git add . && git commit -m "$*"
 }
 
+gch() {
+       git branch | grep -v "^\*" | fzf | xargs git checkout
+}
+
 delete_branches() {
         git branch | egrep -v "(master|develop|main)" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -D </tmp/merged-branches
 }

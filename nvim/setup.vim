@@ -9,6 +9,8 @@ filetype plugin on
 syntax on                   " Syntax highlighting
 scriptencoding utf-8
 set shortmess+=c
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+" use `set list` to see whitespace and `set nolist` to hide it
 
 set colorcolumn=120
 highlight ColorColumn ctermbg=magenta
@@ -44,9 +46,6 @@ set undodir=~/.neovimundo
 if !isdirectory(expand("~/.neovimundo"))
     call mkdir(expand("~/.neovimundo"), "", 0700)
 endif
-
-" open urls under cursor with gx
-nmap <silent>gx :sil !open <c-r><c-a><cr>
 
 " Remappings
 nnoremap <SPACE> <Nop>
