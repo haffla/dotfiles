@@ -23,7 +23,7 @@ set nostartofline
 set expandtab
 " Can leave unsaved buffers
 set hidden
-set number relativenumber
+set number!                " Show line numbers
 set ignorecase             " case insensitive search
 set smartcase              " case sensitive when searching uppercase
 set nowrap                 " Do not wrap long lines
