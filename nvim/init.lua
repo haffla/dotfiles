@@ -130,7 +130,21 @@ require("lazy").setup({
     dependencies = {
       "tyru/open-browser.vim"
     }
-  }
+  },
+  {
+      "kdheepak/lazygit.nvim",
+      cmd = {
+              "LazyGit",
+              "LazyGitConfig",
+              "LazyGitCurrentFile",
+              "LazyGitFilter",
+              "LazyGitFilterCurrentFile",
+      },
+      -- optional for floating window border decoration
+      dependencies = {
+          "nvim-lua/plenary.nvim",
+      },
+  },
 })
 
 require('lsp_config')
