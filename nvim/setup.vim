@@ -83,7 +83,6 @@ nnoremap <Leader><tab> :e#<CR>
 
 " Git
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gl :Glog<CR>
 
 " Copy to and from system clipboard
 vmap <leader>y "*y
