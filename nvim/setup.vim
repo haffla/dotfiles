@@ -94,7 +94,10 @@ nnoremap <leader>cone :e ~/.config/nvim/init.vim<CR>
 nnoremap <leader>conr :source ~/.config/nvim/init.vim<CR>
 
 nnoremap <C-s> :Telescope buffers<CR>
+nnoremap <C-x> :Telescope harpoon marks<CR>
+nnoremap <silent> <Leader>x :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-p> :Telescope find_files find_command=rg,--hidden,--files,--glob,!.git<CR>
+" :lua require("harpoon.ui").toggle_quick_menu()
 nnoremap <Leader>o :Telescope lsp_workspace_symbols<CR>
 
 nnoremap <C-n> :NvimTreeToggle<CR>

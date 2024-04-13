@@ -85,7 +85,7 @@ require("lazy").setup({
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TsUpdate"
+    build = ":TSUpdate"
 
   },
   -- {
@@ -145,6 +145,7 @@ require("lazy").setup({
           "nvim-lua/plenary.nvim",
       },
   },
+  "ThePrimeagen/harpoon"
 })
 
 require('lsp_config')
