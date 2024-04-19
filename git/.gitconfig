@@ -12,3 +12,5 @@
 	gpgsign = true
 [pull]
 	rebase = false
+[branch]
+	sort = -committerdate
