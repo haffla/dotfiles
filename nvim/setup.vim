@@ -125,3 +125,6 @@ noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
 
 " LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
+
+" Format
+nnoremap <silent> <leader>F :Format<CR>

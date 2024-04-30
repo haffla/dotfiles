@@ -1,4 +1,3 @@
-require("lsp-format").setup {}
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -27,8 +26,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   --buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<space>cf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
-
-  require("lsp-format").on_attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -42,7 +39,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local servers = { "solargraph", "tsserver", "rust_analyzer", "pyright" }
+local servers = { "solargraph", "tsserver", "pyright" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

@@ -112,7 +112,7 @@ require("lazy").setup({
   "github/copilot.vim",
   "vim-test/vim-test",
   "voldikss/vim-floaterm",
-  "lukas-reineke/lsp-format.nvim",
+  "mhartington/formatter.nvim",
   {
     "windwp/nvim-ts-autotag",
     config = function()
@@ -149,7 +149,7 @@ require("lazy").setup({
 })
 
 require('lsp_config')
--- require('ruby_lsp_config')
+require('formatter_config')
 require('complete')
 require('tcope')
 require('status_line')
