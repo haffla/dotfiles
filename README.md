@@ -12,6 +12,12 @@ Dependencies:
 home-manager switch
 ```
 
+### Update packages
+
+```
+sudo -i nix-channel --update && home-manager switch
+```
+
 ## Brew
 
 ```
