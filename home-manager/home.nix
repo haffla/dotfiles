@@ -69,7 +69,6 @@
     pkgs.tree
     pkgs.htop
     pkgs.jq
-    pkgs.neovim
     pkgs.autojump
     pkgs.ripgrep
     pkgs.gnupg

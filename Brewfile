@@ -9,6 +9,7 @@ brew "awscli"
 brew "yarn"
 brew "gh"
 brew "tmux"
+brew "neovim"
 # tmux plugin manager
 brew "tpm"
 brew "jesseduffield/lazygit/lazygit"
