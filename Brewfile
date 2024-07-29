@@ -10,6 +10,7 @@ brew "yarn"
 brew "gh"
 brew "tmux"
 brew "neovim"
+brew "git-delta"
 # tmux plugin manager
 brew "tpm"
 cask "alfred"
