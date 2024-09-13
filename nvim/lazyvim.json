@@ -6,7 +6,6 @@
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.ruby",
     "lazyvim.plugins.extras.test.core",
-    "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.octo"
   ],
