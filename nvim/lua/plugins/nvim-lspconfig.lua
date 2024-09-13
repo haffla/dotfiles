@@ -2,12 +2,12 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
-      solargraph = {
+      rubocop = {
         cmd = {
-          "asdf",
+          "bundle",
           "exec",
-          "solargraph",
-          "stdio",
+          "rubocop",
+          "--lsp",
         },
       },
     },
