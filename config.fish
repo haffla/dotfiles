@@ -36,6 +36,7 @@ alias gl='git log'
 alias gb='git branch'
 alias ga='git add'
 alias gcm='git checkout main'
+alias gcmsg='git commit -m'
 alias ggpull='git pull origin $(git_current_branch)'
 alias ggpush='git push origin $(git_current_branch)'
 alias gco='git checkout'
@@ -45,9 +46,19 @@ alias gsta='git stash apply'
 alias gcp='git cherry-pick'
 
 alias be='bundle exec'
+alias r='bin/rails'
 
 set --global hydro_color_git FFB6C1
 set --global hydro_color_prompt brgreen
 
+set -U fish_history_max_items 10000
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 status --is-interactive; and rbenv init - --no-rehash fish | source
+
+fish_add_path /Users/jacke/code/tourlane/aws-console/scripts
+fish_add_path /Users/jacke/Downloads/llm-term-v.1.2/target/release
+# set -U fish_user_paths /Users/jacke/code/tourlane/aws-console/scripts $fish_user_paths
+
+# Created by `pipx` on 2025-04-22 15:36:29
+set PATH $PATH /Users/jacke/.local/bin

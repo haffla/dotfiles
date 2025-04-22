@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/tokyo_night.toml"
+    "~/.config/alacritty/themes/themes/catppuccin_frappe.toml"
 ]
 
 [window]
@@ -17,11 +17,3 @@ startup_mode = "Maximized"
 [font.bold]
   family = "Hack Nerd Font Mono"
   style = "Bold"
-
-[[hints.enabled]]
-regex = '(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+'
-command = "/usr/bin/open"
-post_processing = true
-  [hints.enabled.mouse]
-    enabled = true
-    mods = "Control"
