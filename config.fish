@@ -56,9 +56,5 @@ set -U fish_history_max_items 10000
 eval "$(/opt/homebrew/bin/brew shellenv)"
 status --is-interactive; and rbenv init - --no-rehash fish | source
 
-fish_add_path /Users/jacke/code/tourlane/aws-console/scripts
-fish_add_path /Users/jacke/Downloads/llm-term-v.1.2/target/release
-# set -U fish_user_paths /Users/jacke/code/tourlane/aws-console/scripts $fish_user_paths
-
-# Created by `pipx` on 2025-04-22 15:36:29
-set PATH $PATH /Users/jacke/.local/bin
+fish_add_path ~/code/tourlane/aws-console/scripts
+fish_add_path ~/Downloads/llm-term-v.1.2/target/release
