@@ -2,21 +2,7 @@
 
 Dependencies:
 
-- nix https://nixos.org/download.html
-- Home Manager https://github.com/nix-community/home-manager
 - Brew
-
-## Home Manager
-
-```
-home-manager switch
-```
-
-### Update packages
-
-```
-sudo -i nix-channel --update && home-manager switch
-```
 
 ## Brew
 
