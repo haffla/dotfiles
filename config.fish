@@ -47,6 +47,7 @@ alias gcp='git cherry-pick'
 
 alias be='bundle exec'
 alias r='bin/rails'
+alias xx='bundle exec rspec && bundle exec rubocop -A'
 
 set --global hydro_color_git FFB6C1
 set --global hydro_color_prompt brgreen
