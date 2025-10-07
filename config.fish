@@ -58,4 +58,3 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 status --is-interactive; and rbenv init - --no-rehash fish | source
 
 fish_add_path ~/code/tourlane/aws-console/scripts
-fish_add_path ~/Downloads/llm-term-v.1.2/target/release
