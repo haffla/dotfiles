@@ -58,3 +58,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 status --is-interactive; and rbenv init - --no-rehash fish | source
 
 fish_add_path ~/code/tourlane/aws-console/scripts
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jacke/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/jacke/Downloads/google-cloud-sdk/path.fish.inc'; end
