@@ -10,3 +10,4 @@ ln -sf $(pwd)/git/.gitignore ~/.gitignore
 ln -sf $(pwd)/git/.gitconfig ~/.gitconfig
 ln -sf $(pwd)/.tmux.conf ~/.tmux.conf
 ln -sf $(pwd)/config.fish ~/.config/fish/config.fish
+ln -sf $(pwd)/config.ghostty ~/.config/ghostty/config
