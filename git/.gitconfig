@@ -3,6 +3,7 @@
 	email = jakop@pm.me
 [core]
 	excludesfile = /Users/jacke/.gitignore
+	editor = nvim --clean
 [merge]
   conflictstyle = diff3
 [diff]
