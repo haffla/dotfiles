@@ -8,6 +8,8 @@ return {
         path = 1, -- 0 = filename, 1 = relative path, 2 = absolute path
         shorting_target = 0, -- 0 disables truncation
       }
+      -- Remove time
+      opts.sections.lualine_z = {}
     end,
   },
 }
