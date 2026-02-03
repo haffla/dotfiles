@@ -40,6 +40,7 @@ alias gcmsg='git commit -m'
 alias ggpull='git pull origin $(git_current_branch)'
 alias ggpush='git push origin $(git_current_branch)'
 alias gco='git checkout'
+alias gis='git switch'
 alias gd='git diff'
 alias gstp='git stash pop'
 alias gsta='git stash apply'
@@ -60,7 +61,9 @@ status --is-interactive; and rbenv init - --no-rehash fish | source
 fish_add_path ~/code/tourlane/aws-console/scripts
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jacke/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/jacke/Downloads/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/jacke/Downloads/google-cloud-sdk/path.fish.inc' ]
+    . '/Users/jacke/Downloads/google-cloud-sdk/path.fish.inc'
+end
 
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
