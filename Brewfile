@@ -14,6 +14,10 @@ brew "tmux"
 brew "neovim"
 # tmux plugin manager
 brew "tpm"
+brew "lsd"
+brew "yazi"
+# pdf preview in jazi
+brew "poppler"
 cask "alfred"
 cask "firefox"
 cask "google-chrome"

@@ -28,6 +28,8 @@ fish_vi_key_bindings
 set fish_cursor_default block
 set fish_cursor_insert line
 
+set fish_color_autosuggestion 98FF98 --bold
+
 alias n='nvim'
 alias c='clear'
 
@@ -45,6 +47,8 @@ alias gd='git diff'
 alias gstp='git stash pop'
 alias gsta='git stash apply'
 alias gcp='git cherry-pick'
+alias l='lsd -l'
+alias y='yazi'
 
 alias be='bundle exec'
 alias r='bin/rails'
@@ -67,3 +71,7 @@ end
 
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
+
+# PHP
+fish_add_path ~/.config/herd-lite/bin
+set -x PHP_INI_SCAN_DIR ~/.config/herd-lite/bin $PHP_INI_SCAN_DIR

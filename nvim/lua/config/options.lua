@@ -13,3 +13,5 @@ vim.opt.colorcolumn = "120"
 
 -- disable relative line numbers
 vim.opt.relativenumber = false
+
+vim.g.lazyvim_php_lsp = "intelephense"
