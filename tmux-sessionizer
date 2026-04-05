@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+PROJECTS_DIR="$HOME/code"
+
+selected=$(
+  find "$PROJECTS_DIR" -mindepth 1 -maxdepth 2 -type d -exec test -d "{}/.git" \; -print |
+    sed "s|^$PROJECTS_DIR/||" |
+    fzf --prompt='Projects > '
+)
+
+# If user cancelled (ESC), fzf exits non-zero
+if [ $? -ne 0 ]; then
+  exit 0
+fi
+
+selected="$PROJECTS_DIR/$selected"
+
+[ -z "$selected" ] && exit 0
+
+session=$(basename "$selected" | tr . _)
+
+if ! tmux has-session -t="$session" 2>/dev/null; then
+  tmux new-session -ds "$session" -n main -c "$selected"
+
+  tmux set-window-option -t "$session:main" main-pane-width 50%
+
+  tmux split-window -t "$session:main" -h -c "$selected"
+  tmux split-window -t "$session:main" -v -c "$selected"
+
+  tmux select-layout -t "$session:main" main-vertical
+
+  tmux send-keys -t "$session:main.1" "nvim" C-m
+fi
+
+tmux switch-client -t "$session" 2>/dev/null || tmux attach -t "$session"
