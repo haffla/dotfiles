@@ -48,6 +48,8 @@ alias gstp='git stash pop'
 alias gsta='git stash apply'
 alias gcp='git cherry-pick'
 alias l='lsd -l'
+alias la='lsd -l -a'
+alias lt='lsd --tree'
 alias y='yazi'
 
 alias be='bundle exec'
@@ -75,3 +77,5 @@ test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
 # PHP
 fish_add_path ~/.config/herd-lite/bin
 set -x PHP_INI_SCAN_DIR ~/.config/herd-lite/bin $PHP_INI_SCAN_DIR
+
+zoxide init fish | source
