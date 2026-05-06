@@ -5,7 +5,7 @@ PROJECTS_DIR="$HOME/code"
 selected=$(
   find "$PROJECTS_DIR" -mindepth 1 -maxdepth 2 -type d -exec test -d "{}/.git" \; -print |
     sed "s|^$PROJECTS_DIR/||" |
-    fzf --prompt='Projects > '
+    fzf --height=100% --reverse --border --prompt='Projects > '
 )
 
 # If user cancelled (ESC), fzf exits non-zero
